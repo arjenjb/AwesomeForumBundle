@@ -37,10 +37,16 @@ class Topic
     private $datePosted;
 
     /**
+     * @ORM\Column(name="date_changed", type="datetime")
+     */
+    private $dateChanged;
+
+    /**
      * @ORM\OneToMany(targetEntity="Reply", mappedBy="topic")
      * @ORM\OrderBy({"datePosted" = "DESC"})
      */
     private $replies;
+    
     public function __construct()
     {
         $this->replies = new \Doctrine\Common\Collections\ArrayCollection();
@@ -154,5 +160,25 @@ class Topic
     public function getReplies()
     {
         return $this->replies;
+    }
+
+    /**
+     * Set dateChanged
+     *
+     * @param datetime $dateChanged
+     */
+    public function setDateChanged($dateChanged)
+    {
+        $this->dateChanged = $dateChanged;
+    }
+
+    /**
+     * Get dateChanged
+     *
+     * @return datetime 
+     */
+    public function getDateChanged()
+    {
+        return $this->dateChanged;
     }
 }
