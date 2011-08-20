@@ -1,1 +1,20 @@
-Mijn eerst view!
+<table>
+    <thead>
+        <tr>
+            <th>Topic</th>
+            <th>Poster</th>
+            <th>Date</th>
+            <th>Replies</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for topic in topics %}
+        <tr>
+            <td>{{ topic.title }}</td>
+            <td>{{ topic.posterName }}</td>
+            <td>{{ topic.datePosted|date }}</td>
+            <td>{{ topic.replies|length }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
