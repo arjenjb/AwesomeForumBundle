@@ -14,7 +14,28 @@ class TopicController extends Controller
      */
     public function indexAction()
     {
-       return array();
+        $topics = $this->getDoctrine()
+            ->getEntityManager()
+            ->createQuery('SELECT t FROM AwesomeForumBundle:Topic t ORDER BY t.dateChanged')
+            ->getResult();
+        
+        return array(
+            'topics' => $topics
+        );
+    }
+
+    /**
+     * @Route("/topic/{id}")
+     * @Template
+     */
+    public function topicAction($id)
+    {
+        $topic = $this->getDoctrine()
+            ->getRepository('AwesomeForumBundle:Topic')
+            ->find($id);
+
+        return array(
+            'topic' => $topic
+        );
     }
 }
-
