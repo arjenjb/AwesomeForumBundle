@@ -1,0 +1,11 @@
+<h1>{{ topic.title }}</h1>
+<p><small>Door <em>{{ topic.posterName }}</em> op <em>{{ topic.datePosted|date }}</em></small></p>
+<p>{{ topic.message }}</p>
+
+{% for reply in topic.replies %}
+<hr>
+<p><small>Reactie van <em>{{ reply.posterName }}</em> op {{ reply.datePosted|date }}</small></p>
+<p>{{ reply.message }}</p>
+
+{% endfor %}
+
