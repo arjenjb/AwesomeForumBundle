@@ -1,0 +1,100 @@
+html
+{
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+
+    font-family: Verdana;
+    font-size: 11px;
+    
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0.2, rgb(240,240,240)),
+        color-stop(0.8, rgb(224,224,224))
+    );
+    background-image: -moz-linear-gradient(
+        center bottom,
+        rgb(240,240,240) 20%,
+        rgb(224,224,224) 80%
+    );
+}
+
+A
+{
+    color: #006699;
+    border-bottom: 1px dotted #006699;
+    text-decoration: none;
+}
+
+A:hover
+{
+    color: #FF6600;
+    border-color: #FF6600;
+}
+
+#body
+{
+    width: 600px;
+    margin: 2em auto;
+    border: 1px solid #3e739c;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 0px 20px #888;
+    padding: 0 2em;
+    padding-bottom: 1em;
+}
+
+h1
+{
+    color: #FF6600;
+    text-align: center;
+    border-bottom: 1px dotted;
+    padding-bottom: 1em;
+    text-shadow: #CCCCCC 1px 1px 2px;
+}
+
+h2
+{
+    color: #666666;
+}
+
+#form label
+{
+    display: block;
+    color: #888888;
+    margin-top: 1em;
+    font-weight: bold;
+}
+
+table
+{
+    margin: 1em 0;
+    width: 100%;
+}
+
+th
+{
+    text-align: left;
+    background-color: #006699;
+    color: #FFFFFF;
+    padding: 3px;
+}
+
+td
+{
+    padding: 3px;
+}
+
+hr
+{
+    color: #CCCCCC;
+    background-color: #CCCCCC;
+    height: 1px;
+    border: 0;
+}
