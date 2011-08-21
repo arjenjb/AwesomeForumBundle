@@ -43,9 +43,10 @@ class Topic
 
     /**
      * @ORM\OneToMany(targetEntity="Reply", mappedBy="topic")
-     * @ORM\OrderBy({"datePosted" = "DESC"})
+     * @ORM\OrderBy({"datePosted" = "ASC"})
      */
     private $replies;
+    
     public function __construct()
     {
         $this->replies = new \Doctrine\Common\Collections\ArrayCollection();

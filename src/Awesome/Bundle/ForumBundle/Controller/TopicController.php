@@ -93,6 +93,32 @@ class TopicController extends Controller
             ->add('message', 'textarea')
             ->getForm();
 
+        $request = $this->getRequest();
+
+        if ($request->getMethod() == 'POST')
+        {
+            $form->bindRequest($request);
+
+            if ($form->isValid())
+            {
+                $topic = $this->getDoctrine()
+                    ->getRepository('AwesomeForumBundle:Topic')
+                    ->find($id);
+               
+                $topic->setDateChanged(new \DateTime());
+
+                $reply->setDatePosted(new \DateTime());
+                $reply->setTopic($topic);
+
+                $em = $this->getDoctrine()->getEntityManager();
+                $em->persist($topic);
+                $em->persist($reply);
+                $em->flush();
+
+                return $this->redirect($this->generateUrl('awesome_forum_topic_topic', array('id' => $topic->getId())));
+            }
+        }
+
         return array(
             'form' => $form->createView()
         );
