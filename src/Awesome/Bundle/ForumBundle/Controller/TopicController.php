@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Awesome\Bundle\ForumBundle\Entity\Topic;
+use Awesome\Bundle\ForumBundle\Entity\Reply;
 
 class TopicController extends Controller
 {
@@ -73,6 +74,24 @@ class TopicController extends Controller
                 return $this->redirect($this->generateUrl('awesome_forum_topic_topic', array('id' => $topic->getId())));
             }
         }
+
+        return array(
+            'form' => $form->createView()
+        );
+    }
+
+     /**
+     * @Route("/reply/{id}")
+     * @Template
+     */
+    public function replyAction($id)
+    {
+        $reply = new Reply();
+
+        $form = $this->createFormBuilder($reply)
+            ->add('posterName', null, array('label' => 'Name'))
+            ->add('message', 'textarea')
+            ->getForm();
 
         return array(
             'form' => $form->createView()
