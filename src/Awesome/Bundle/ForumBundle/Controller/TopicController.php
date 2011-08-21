@@ -54,6 +54,26 @@ class TopicController extends Controller
             ->add('message', 'textarea')
             ->getForm();
 
+        $request = $this->getRequest();
+
+        if ($request->getMethod() == 'POST')
+        {
+            $form->bindRequest($request);
+
+            if ($form->isValid())
+            {
+                // store the topic
+                $topic->setDateChanged(new \DateTime());
+                $topic->setDatePosted(new \DateTime());
+
+                $em = $this->getDoctrine()->getEntityManager();
+                $em->persist($topic);
+                $em->flush();
+
+                return $this->redirect($this->generateUrl('awesome_forum_topic_topic', array('id' => $topic->getId())));
+            }
+        }
+
         return array(
             'form' => $form->createView()
         );
