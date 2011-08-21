@@ -1,6 +1,12 @@
-<h1>Reply</h1>
+{% extends 'AwesomeForumBundle::layout.html.twig' %}
+
+{% block content %}
+
+<h2>Reply</h2>
 
 <form  method="post">
     {{ form_widget(form) }}
     <input type="submit" value="Reply!" />
 </form>
+
+{% endblock %}
