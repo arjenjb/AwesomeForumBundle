@@ -1,3 +1,7 @@
+{% extends 'AwesomeForumBundle::layout.html.twig' %}
+
+{% block content %}
+
 <p><a href="{{ path('awesome_forum_topic_post') }}">+ New topic</a></p>
 
 <table>
@@ -20,3 +24,5 @@
         {% endfor %}
     </tbody>
 </table>
+
+{% endblock %}
