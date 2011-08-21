@@ -10,7 +10,7 @@
     <tbody>
         {% for topic in topics %}
         <tr>
-            <td>{{ topic.title }}</td>
+            <td><a href="{{ path('awesome_forum_topic_topic', { 'id': topic.id }) }}">{{ topic.title }}</a></td>
             <td>{{ topic.posterName }}</td>
             <td>{{ topic.datePosted|date }}</td>
             <td>{{ topic.replies|length }}</td>
